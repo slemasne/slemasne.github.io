@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>bond_maths</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>bond_maths</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -13,8 +11,8 @@
 *
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1109,7 +1107,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2538,7 +2535,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3029,7 +3025,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8760,6 +8755,9 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
+[dir="rtl"] #ipython_notebook {
+  float: right !important;
+}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -8962,8 +8960,14 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -8986,6 +8990,16 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
+}
+[dir="rtl"] .list_toolbar .tree-buttons {
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9122,6 +9136,9 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
+[dir="rtl"] #tree-selector a {
+  float: right;
+}
 #button-select-all {
   min-width: 50px;
 }
@@ -9211,6 +9228,9 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
+[dir="rtl"] #new-menu {
+  text-align: right;
+}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9255,6 +9275,9 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
+}
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9551,6 +9574,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9571,11 +9595,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11246,7 +11265,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 20ex;
+  width: 21ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11558,6 +11577,7 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
+  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11571,6 +11591,9 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
+}
+.terminal-app .terminal .xterm-rows {
+  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11703,9 +11726,7 @@ body {
 div#notebook {
   overflow: visible;
   border-top: none;
-}
-
-@media print {
+}@media print {
   div.cell {
     display: block;
     page-break-inside: avoid;
@@ -11726,7 +11747,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -11750,8 +11771,7 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11759,8 +11779,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11779,26 +11798,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[98]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># In Python 2.7 the &quot;/&quot; operator is integer division if the inputs are integers</span>
-<span class="c1"># Use the following special import for float division</span>
-
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Define the bond characteristics</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define the bond characteristics</span>
 <span class="c1"># As noted, we&#39;ll use a hypothetical 5 year Corporate bond which has a face of 1000 and coupon of 50</span>
 
 <span class="n">face</span> <span class="o">=</span> <span class="mi">1000</span>
@@ -11812,19 +11815,27 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Define-class-for-Bond">Define class for Bond<a class="anchor-link" href="#Define-class-for-Bond">&#182;</a></h3>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[127]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">class</span> <span class="nc">Bond</span><span class="p">():</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Bond</span><span class="p">():</span>
     
-    <span class="k">def</span> <span class="fm">__init__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">par</span><span class="p">,</span> <span class="n">coupon</span><span class="p">,</span> <span class="n">periods</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">par</span><span class="p">,</span> <span class="n">coupon</span><span class="p">,</span> <span class="n">periods</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">par</span> <span class="o">=</span> <span class="n">par</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">coupon</span> <span class="o">=</span> <span class="n">coupon</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">periods</span> <span class="o">=</span> <span class="n">periods</span>
     
-    <span class="k">def</span> <span class="nf">pv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">rate</span><span class="p">,</span> <span class="n">back_in</span> <span class="o">=</span> <span class="bp">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">pv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">back_in</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
     
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the Present Value (PV) of a bond.</span>
@@ -11839,37 +11850,32 @@ div#notebook {
 <span class="sd">        back_in (boolean): prints the step-by-step calculation</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">total_pv</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">discounted_cfs</span> <span class="o">=</span> <span class="p">[]</span>
-
         <span class="c1"># Loop over a series of numbers from 1 to the number of periods</span>
-        <span class="c1"># Append the discounted CF for that period to the list</span>
         <span class="c1"># Sum all the discounted Cash Flows</span>
         <span class="c1"># Independently calculate the discounted CF from the final</span>
-
-        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">periods</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-            <span class="n">discounted_cfs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">coupon</span> <span class="o">/</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rate</span><span class="p">)</span><span class="o">**</span><span class="n">n</span><span class="p">)))</span>
+        
+        <span class="n">discounted_cfs</span> <span class="o">=</span> <span class="p">[((</span><span class="bp">self</span><span class="o">.</span><span class="n">coupon</span> <span class="o">/</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rate</span><span class="p">)</span><span class="o">**</span><span class="n">n</span><span class="p">)))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">periods</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
         <span class="n">sum_coupons</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">discounted_cfs</span><span class="p">)</span>
-        <span class="n">final_payment</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">par</span> <span class="o">/</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rate</span><span class="p">)</span><span class="o">**</span><span class="n">n</span><span class="p">))</span>    
+        <span class="n">final_payment</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">par</span> <span class="o">/</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rate</span><span class="p">)</span><span class="o">**</span><span class="n">periods</span><span class="p">))</span>    
         <span class="n">total_pv</span> <span class="o">=</span> <span class="n">sum_coupons</span> <span class="o">+</span> <span class="n">final_payment</span>
 
         <span class="c1"># Define an optional argument </span>
         <span class="c1"># Which prints a step-by-step calculation to the terminal</span>
 
-        <span class="k">if</span> <span class="n">back_in</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s2">&quot;Bond price breakdown </span><span class="se">\n</span><span class="s2">-------------------&quot;</span>
-            <span class="k">print</span> <span class="s2">&quot;Discount rate: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rate</span><span class="p">)</span>
-            <span class="k">print</span> <span class="s2">&quot;Periods: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">periods</span><span class="p">)</span>
-            <span class="k">print</span> <span class="s2">&quot;Coupon: {}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">coupon</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">back_in</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Bond price breakdown </span><span class="se">\n</span><span class="s2">-------------------&quot;</span><span class="p">)</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Discount rate: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rate</span><span class="p">))</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Periods: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">periods</span><span class="p">))</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Coupon: </span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">coupon</span><span class="p">))</span>
             <span class="k">for</span> <span class="n">period</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">discounted_cfs</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-                <span class="k">print</span> <span class="s2">&quot;Discounted CF for Coupon in Year {} is {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">period</span><span class="p">),</span> <span class="n">i</span><span class="p">)</span>
-            <span class="k">print</span> <span class="s2">&quot;Discounted Principal is {}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">final_payment</span><span class="p">)</span>
-            <span class="k">print</span> <span class="s2">&quot;Bond price is: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">total_pv</span><span class="p">)</span>
+                <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Discounted CF for Coupon in Year </span><span class="si">{}</span><span class="s2"> is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">period</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">))))</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Discounted Principal is </span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">final_payment</span><span class="p">,</span><span class="mi">2</span><span class="p">))))</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Bond price is: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">total_pv</span><span class="p">,</span><span class="mi">2</span><span class="p">))))</span>
             <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">total_pv</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">total_pv</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
     
-    <span class="k">def</span> <span class="nf">ytm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">back_in</span> <span class="o">=</span> <span class="bp">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">ytm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">back_in</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
     
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the YTM of a bond.</span>
@@ -11894,31 +11900,31 @@ div#notebook {
 
         <span class="n">coupon_rate</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coupon</span><span class="o">/</span><span class="n">face</span><span class="p">)</span>
         <span class="n">ytm_val</span> <span class="o">=</span> <span class="n">coupon_rate</span>
-        <span class="n">condition</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">condition</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">while</span> <span class="n">condition</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">price</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">par</span><span class="p">:</span>
                 <span class="n">ytm_val</span> <span class="o">+=</span> <span class="mf">0.0001</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">ytm_val</span> <span class="o">-=</span> <span class="mf">0.0001</span>
 
-            <span class="n">total_pv</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">pv</span><span class="p">(</span><span class="n">ytm_val</span><span class="p">)</span>
+            <span class="n">total_pv</span> <span class="o">=</span>  <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pv</span><span class="p">(</span><span class="n">ytm_val</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="p">(</span><span class="n">total_pv</span> <span class="o">&gt;</span> <span class="n">price</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">ytm_val</span> <span class="o">&gt;</span> <span class="n">coupon_rate</span><span class="p">):</span>
-                <span class="n">condition</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="n">condition</span> <span class="o">=</span> <span class="kc">True</span>
 
             <span class="k">elif</span><span class="p">(</span><span class="n">total_pv</span> <span class="o">&lt;</span> <span class="n">price</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">ytm_val</span> <span class="o">&lt;</span> <span class="n">coupon_rate</span><span class="p">):</span>
-                    <span class="n">condition</span> <span class="o">=</span> <span class="bp">True</span>
+                    <span class="n">condition</span> <span class="o">=</span> <span class="kc">True</span>
 
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">condition</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="n">condition</span> <span class="o">=</span> <span class="kc">False</span>
         
-        <span class="k">if</span> <span class="n">back_in</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s2">&quot;A PV of {} generates a YTM of {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">total_pv</span><span class="p">,</span> <span class="n">ytm_val</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">back_in</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;A PV of </span><span class="si">{}</span><span class="s2"> generates a YTM of </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">total_pv</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">ytm_val</span><span class="p">,</span><span class="mi">2</span><span class="p">))))</span>
         
         <span class="k">return</span> <span class="n">ytm_val</span>
     
     
-    <span class="k">def</span> <span class="nf">mc_dur</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">back_in</span> <span class="o">=</span> <span class="bp">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mc_dur</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">back_in</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
     
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the Macaulay Duration of a bond. </span>
@@ -11942,24 +11948,19 @@ div#notebook {
         <span class="c1"># Assign a weight to each CF</span>
         <span class="c1"># Calculate the weighted principal</span>
         <span class="c1"># Return the result of weighted CFs (coupons + princiap) divided by price</span>
-
-        <span class="n">weighted_dcfs</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">periods</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-            <span class="n">cf</span> <span class="o">=</span> <span class="p">((</span><span class="n">coupon</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rate</span><span class="p">)</span><span class="o">**</span><span class="n">n</span><span class="p">))</span>
-            <span class="n">weighted_dcfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cf</span><span class="p">)</span>
-
+        
+        <span class="n">weighted_dcfs</span> <span class="o">=</span> <span class="p">[((</span><span class="n">coupon</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rate</span><span class="p">)</span><span class="o">**</span><span class="n">n</span><span class="p">))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">periods</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
         <span class="n">weighted_principal</span> <span class="o">=</span> <span class="p">((</span><span class="n">face</span> <span class="o">*</span> <span class="n">periods</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rate</span><span class="p">)</span><span class="o">**</span><span class="n">periods</span><span class="p">))</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(((</span><span class="nb">sum</span><span class="p">(</span><span class="n">weighted_dcfs</span><span class="p">)</span> <span class="o">+</span> <span class="n">weighted_principal</span><span class="p">)</span><span class="o">/</span><span class="n">price</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
 
-        <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">weighted_dcfs</span><span class="p">)</span> <span class="o">+</span> <span class="n">weighted_principal</span><span class="p">)</span><span class="o">/</span><span class="n">price</span>
-
-        <span class="k">if</span> <span class="n">back_in</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s1">&#39;Macaualy Duration Calculation</span><span class="se">\n</span><span class="s1">------------------------------</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">if</span> <span class="n">back_in</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Macaualy Duration Calculation</span><span class="se">\n</span><span class="s1">------------------------------</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">weighted_dcfs</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
-                <span class="k">print</span> <span class="s1">&#39;Weighted CF for Period {} is: {}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-            <span class="k">print</span> <span class="s1">&#39;Weighted CF for Principal is: {}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">weighted_principal</span><span class="p">))</span>
-            <span class="k">print</span> <span class="s1">&#39;Total weighted CF is: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">((</span><span class="nb">sum</span><span class="p">(</span><span class="n">weighted_dcfs</span><span class="p">)</span> <span class="o">+</span> <span class="n">weighted_principal</span><span class="p">)))</span>
-            <span class="k">print</span> <span class="s1">&#39;Bond price is: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">price</span><span class="p">)</span>
-            <span class="k">print</span> <span class="s1">&#39;Macaualy Duration is {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+                <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Weighted CF for Period </span><span class="si">{}</span><span class="s1"> is: </span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Weighted CF for Principal is: </span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">weighted_principal</span><span class="p">)))</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Total weighted CF is: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">((</span><span class="nb">sum</span><span class="p">(</span><span class="n">weighted_dcfs</span><span class="p">)</span> <span class="o">+</span> <span class="n">weighted_principal</span><span class="p">))))</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Bond price is: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">price</span><span class="p">))</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Macaualy Duration is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
 
         <span class="k">return</span> <span class="n">result</span>
     
@@ -11985,7 +11986,7 @@ div#notebook {
 
         <span class="n">mod_dur</span> <span class="o">=</span> <span class="n">mc_duration</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">ytmat</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">mod_dur</span>
+        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">mod_dur</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11993,12 +11994,20 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Try-out-the-class-results">Try out the class results<a class="anchor-link" href="#Try-out-the-class-results">&#182;</a></h3>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[128]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Initiate a bond using the Bond() class</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initiate a bond using the Bond() class</span>
 <span class="c1"># We&#39;ll call this bond object walmart</span>
 <span class="c1"># The bond will have the following attributes:</span>
 <span class="c1"># Face = 1000</span>
@@ -12015,10 +12024,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[129]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># At par, the interest rate will equal the coupon rate</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># At par, the interest rate will equal the coupon rate</span>
 <span class="c1"># The bond is priced at par</span>
 <span class="c1"># Call the Present Value method on walmart using 0.05 as an interest rate</span>
 
@@ -12033,7 +12042,11 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[129]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12048,13 +12061,13 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[130]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># We can back into this calculation using the back_in argument of pv() method</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># We can back into this calculation using the back_in argument of pv() method</span>
 <span class="c1"># The bond price is the sum of all these Cash Flows</span>
 
-<span class="n">walmart</span><span class="o">.</span><span class="n">pv</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">back_in</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">walmart</span><span class="o">.</span><span class="n">pv</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">back_in</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12065,7 +12078,11 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Bond price breakdown 
 -------------------
@@ -12073,19 +12090,23 @@ Discount rate: 0.05
 Periods: 5
 Coupon: 50
 
-Discounted CF for Coupon in Year 1 is 47.619047619
-Discounted CF for Coupon in Year 2 is 45.3514739229
-Discounted CF for Coupon in Year 3 is 43.1918799266
-Discounted CF for Coupon in Year 4 is 41.1351237396
-Discounted CF for Coupon in Year 5 is 39.1763083234
-Discounted Principal is 783.526166468
+Discounted CF for Coupon in Year 1 is 47.62
+Discounted CF for Coupon in Year 2 is 45.35
+Discounted CF for Coupon in Year 3 is 43.19
+Discounted CF for Coupon in Year 4 is 41.14
+Discounted CF for Coupon in Year 5 is 39.18
+Discounted Principal is 783.53
 
 Bond price is: 1000.0
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[130]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12100,14 +12121,14 @@ Bond price is: 1000.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[131]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Now, lets imagine the credit worthiness of walmart decreases</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Now, lets imagine the credit worthiness of walmart decreases</span>
 <span class="c1"># Investors now demand 7%</span>
 <span class="c1"># The value of the bond falls as it is only payint 5%</span>
 
-<span class="n">walmart</span><span class="o">.</span><span class="n">pv</span><span class="p">(</span><span class="mf">0.07</span><span class="p">,</span> <span class="n">back_in</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span>
+<span class="n">walmart</span><span class="o">.</span><span class="n">pv</span><span class="p">(</span><span class="mf">0.07</span><span class="p">,</span> <span class="n">back_in</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12118,7 +12139,11 @@ Bond price is: 1000.0
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[131]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12133,13 +12158,13 @@ Bond price is: 1000.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[132]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Next month, the price of the bond increases to 940</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Next month, the price of the bond increases to 940</span>
 <span class="c1"># We use the YTM method to see what yield an investor would expect when they pay 940 for the same bond</span>
 
-<span class="n">walmart</span><span class="o">.</span><span class="n">ytm</span><span class="p">(</span><span class="mi">940</span><span class="p">,</span> <span class="n">back_in</span><span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">walmart</span><span class="o">.</span><span class="n">ytm</span><span class="p">(</span><span class="mi">940</span><span class="p">,</span> <span class="n">back_in</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12150,14 +12175,22 @@ Bond price is: 1000.0
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>A PV of 939.66 generates a YTM of 0.0645
+<pre>A PV of 939.66 generates a YTM of 0.06
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[132]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12172,12 +12205,12 @@ Bond price is: 1000.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[133]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Lets now check the Macaulay Duration for the same bond</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Lets now check the Macaulay Duration for the same bond</span>
 
-<span class="n">walmart</span><span class="o">.</span><span class="n">mc_dur</span><span class="p">(</span><span class="mf">0.07</span><span class="p">,</span> <span class="n">back_in</span><span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">walmart</span><span class="o">.</span><span class="n">mc_dur</span><span class="p">(</span><span class="mf">0.07</span><span class="p">,</span> <span class="n">back_in</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12188,35 +12221,43 @@ Bond price is: 1000.0
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Macaualy Duration Calculation
 ------------------------------
 
-Weighted CF for Period 1 is: 47.0
+Weighted CF for Period 1 is: 47
 
-Weighted CF for Period 2 is: 87.0
+Weighted CF for Period 2 is: 87
 
-Weighted CF for Period 3 is: 122.0
+Weighted CF for Period 3 is: 122
 
-Weighted CF for Period 4 is: 153.0
+Weighted CF for Period 4 is: 153
 
-Weighted CF for Period 5 is: 178.0
+Weighted CF for Period 5 is: 178
 
 Weighted CF for Principal is: 3564
 
 Total weighted CF is: 4152
 Bond price is: 918.0
-Macaualy Duration is 4.52317430395
+Macaualy Duration is 4.52
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[13]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[133]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>4.5231743039458925</pre>
+<pre>4.52</pre>
 </div>
 
 </div>
@@ -12227,10 +12268,10 @@ Macaualy Duration is 4.52317430395
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[134]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># And the modified duration</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># And the modified duration</span>
 
 <span class="n">walmart</span><span class="o">.</span><span class="n">modified_dur</span><span class="p">(</span><span class="mf">0.07</span><span class="p">)</span>
 </pre></div>
@@ -12243,11 +12284,15 @@ Macaualy Duration is 4.52317430395
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[134]:</div>
+
+
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>4.227265704622328</pre>
+<pre>4.22</pre>
 </div>
 
 </div>
@@ -12258,10 +12303,10 @@ Macaualy Duration is 4.52317430395
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[136]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># The modified duration shows the percentage price change for 1% change in interest rate</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># The modified duration shows the percentage price change for 1% change in interest rate</span>
 <span class="c1"># Lets try it out</span>
 
 <span class="n">price_7pct</span> <span class="o">=</span> <span class="n">walmart</span><span class="o">.</span><span class="n">pv</span><span class="p">(</span><span class="mf">0.07</span><span class="p">)</span>
@@ -12270,7 +12315,7 @@ Macaualy Duration is 4.52317430395
 
 <span class="c1"># The price change of ~ -4.2% ties out</span>
 
-<span class="k">print</span> <span class="n">price_change</span>
+<span class="nb">print</span> <span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">price_change</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12281,9 +12326,13 @@ Macaualy Duration is 4.52317430395
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>-0.0429210879098
+<pre>-0.0429
 </pre>
 </div>
 </div>
@@ -12292,20 +12341,11 @@ Macaualy Duration is 4.52317430395
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
     </div>
   </div>
 </body>
+
+ 
+
+
 </html>
